@@ -16,10 +16,10 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  const db = await mongoose.connect(process.env.MONGODU_URL, {
+  const db = await mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
+    // useCreateIndex: true,
   });
 
   console.log('new connection');
@@ -37,3 +37,4 @@ async function disconnect() {
 }
 
 const db = { connect, disconnect };
+export default db;
