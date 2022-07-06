@@ -11,6 +11,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import useStyles from '../utils/styles';
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -25,7 +26,8 @@ export default function Login() {
       });
       alert('succss login');
     } catch (err) {
-      // alert(err.response.data ? err.response.data.message : err.message);
+      alert(err);
+      alert(err.response.data ? err.response.data.message : err.message);
     }
   };
   return (
