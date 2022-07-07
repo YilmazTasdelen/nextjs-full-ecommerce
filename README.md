@@ -1,3 +1,36 @@
+# simple ecommerce website with mongodb, nextjs <br/><br/> 
+ 
+ 
+ <img src="./screens/10.png" width="1050" title="">
+ <table>
+  <tr>
+    <td> <img src="./screens/10.png" width="550" title=""></td>
+     <td><img src="./screens/9.png" width="550" title=""></td>
+  </tr>
+   <tr>
+    <td> <img src="./screens/1.png" width="550" title=""></td>
+     <td><img src="./screens/2.png" width="550" title=""></td>
+  </tr>
+   <tr>
+    <td> <img src="./screens/5.png" width="550" title=""></td>
+     <td><img src="./screens/6.png" width="550" title=""></td>
+  </tr>
+   <tr>
+    <td> <img src="./screens/4.png" width="550" title=""></td>
+     <td><img src="./screens/8.png" width="550" title=""></td>
+  </tr>
+   <tr>
+    <td> <img src="./screens/7.png" width="550" title=""></td>
+     <td><img src="./screens/11.png" width="550" title=""></td>
+  </tr>
+ </table>
+ 
+
+    
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
