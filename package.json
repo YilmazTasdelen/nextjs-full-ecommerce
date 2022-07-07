@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@material-ui/core": "^4.12.4",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
@@ -17,8 +19,10 @@
     "mongoose": "^6.4.3",
     "next": "^11.1.4",
     "next-connect": "^0.12.2",
+    "notistack": "^2.0.5",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.33.1"
   },
   "devDependencies": {
     "eslint": "8.19.0",
