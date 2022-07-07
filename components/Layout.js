@@ -1,10 +1,13 @@
+import React, { useContext } from 'react';
+import Head from 'next/head';
+import NextLink from 'next/link';
 import {
   AppBar,
-  Container,
   Toolbar,
   Typography,
+  Container,
   Link,
-  createTheme,
+  createMuiTheme,
   ThemeProvider,
   CssBaseline,
   Switch,
@@ -13,20 +16,17 @@ import {
   Menu,
   MenuItem,
 } from '@material-ui/core';
-import Head from 'next/head';
-import React, { useContext } from 'react';
 import useStyles from '../utils/styles';
-import NextLink from 'next/link';
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function Layout({ description, title, children }) {
+export default function Layout({ title, description, children }) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { darkMode, cart, userInfo } = state;
-  const theme = createTheme({
+  const theme = createMuiTheme({
     typography: {
       h1: {
         fontSize: '1.6rem',
@@ -59,8 +59,11 @@ export default function Layout({ description, title, children }) {
   const loginClickHandler = (e) => {
     setAnchorEl(e.currentTarget);
   };
-  const loginMenuCloseHandler = () => {
+  const loginMenuCloseHandler = (e, redirect) => {
     setAnchorEl(null);
+    if (redirect) {
+      router.push(redirect);
+    }
   };
   const logoutClickHandler = () => {
     setAnchorEl(null);
@@ -72,9 +75,7 @@ export default function Layout({ description, title, children }) {
   return (
     <div>
       <Head>
-        <title>
-          {title ? `${title} - Yilmaz Ecoomerce` : 'Yilmaz Ecoomerce'}
-        </title>
+        <title>{title ? `${title} - Next Amazona` : 'Next Amazona'}</title>
         {description && <meta name="description" content={description}></meta>}
       </Head>
       <ThemeProvider theme={theme}>
@@ -83,9 +84,7 @@ export default function Layout({ description, title, children }) {
           <Toolbar>
             <NextLink href="/" passHref>
               <Link>
-                <Typography className={classes.brand}>
-                  Yilmaz Ecoomerce
-                </Typography>
+                <Typography className={classes.brand}>amazona</Typography>
               </Link>
             </NextLink>
             <div className={classes.grow}></div>
@@ -108,9 +107,6 @@ export default function Layout({ description, title, children }) {
                   )}
                 </Link>
               </NextLink>
-              {/* <NextLink href="/login" passHref>
-                <Link>Login</Link>
-              </NextLink> */}
               {userInfo ? (
                 <>
                   <Button
@@ -128,9 +124,17 @@ export default function Layout({ description, title, children }) {
                     open={Boolean(anchorEl)}
                     onClose={loginMenuCloseHandler}
                   >
-                    <MenuItem onClick={loginMenuCloseHandler}>Profile</MenuItem>
-                    <MenuItem onClick={loginMenuCloseHandler}>
-                      My account
+                    <MenuItem
+                      onClick={(e) => loginMenuCloseHandler(e, '/profile')}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      onClick={(e) =>
+                        loginMenuCloseHandler(e, '/order-history')
+                      }
+                    >
+                      Order Hisotry
                     </MenuItem>
                     <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
                   </Menu>
@@ -145,7 +149,7 @@ export default function Layout({ description, title, children }) {
         </AppBar>
         <Container className={classes.main}>{children}</Container>
         <footer className={classes.footer}>
-          <Typography>All rigth is reserved. Yilmaz Tasdelen</Typography>
+          <Typography>All rights reserved. Next Amazona.</Typography>
         </footer>
       </ThemeProvider>
     </div>
