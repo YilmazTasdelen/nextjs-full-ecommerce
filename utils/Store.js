@@ -52,7 +52,11 @@ function reducer(state, action) {
       return { ...state, userInfo: action.payload };
     case 'USER_LOGOUT':
       return { ...state, userInfo: null, cart: { cartItems: [] } };
-
+    case 'SAVE_PAYMENT_METHOD':
+      return {
+        ...state,
+        cart: { ...state.cart, paymentMethod: action.payload },
+      };
     default:
       return state;
   }
