@@ -8,6 +8,7 @@ const initialState = {
     cartItems: Cookies.get('cartItems')
       ? JSON.parse(Cookies.get('cartItems'))
       : [],
+
     shippingAddress: Cookies.get('shippingAddress')
       ? JSON.parse(Cookies.get('shippingAddress'))
       : {},
@@ -15,6 +16,10 @@ const initialState = {
   userInfo: Cookies.get('userInfo')
     ? JSON.parse(Cookies.get('userInfo'))
     : null,
+
+  paymentMethod: Cookies.get('paymentMethod')
+    ? Cookies.get('paymentMethod')
+    : '',
 };
 
 function reducer(state, action) {
