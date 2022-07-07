@@ -17,6 +17,7 @@ import { useContext, useEffect } from 'react';
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
+import { getError } from '../utils/error';
 import { useSnackbar } from 'notistack';
 
 export default function Login() {
@@ -53,10 +54,11 @@ export default function Login() {
     } catch (err) {
       //alert(err);
       //alert(err.response.data ? err.response.data.message : err.message);
-      enqueueSnackbar(
-        err.response.data ? err.response.data.message : err.message,
-        { variant: 'error' }
-      );
+      //   enqueueSnackbar(
+      //     err.response.data ? err.response.data.message : err.message,
+      //     { variant: 'error' }
+      //   );
+      enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
   return (
